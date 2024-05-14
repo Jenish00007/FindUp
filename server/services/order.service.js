@@ -112,7 +112,63 @@ const getOrderUserById = async (userId) => {
     }
 };
 
+const updateBookingStatus = async (productId, selectedStep) => {
+  try {
+      let statusToUpdate;
+      console.log(statusToUpdate,productId)
+      // Determine the status based on the selectedStep
+      if (selectedStep === 1) {
+          statusToUpdate = "PICKUP";
+      } else if (selectedStep === 2) {
+          statusToUpdate = "DELIVERED";
+      } else {
+          // Handle other steps if needed
+          return {
+              status: false,
+              message: "Invalid step",
+          };
+      }
+      
+      // Find the booking with the given productId
+      const booking = await MongoDB.db
+          .collection(mongoConfig.collections.BOOKINGS)
+          .findOne({ productId: productId });
+
+      if (!booking) {
+          return {
+              status: false,
+              message: "No booking found with the given product ID",
+          };
+      }
+
+      // Update the status of the booking
+      const result = await MongoDB.db
+          .collection(mongoConfig.collections.BOOKINGS)
+          .updateOne(
+              { _id: booking._id },
+              { $set: { status: statusToUpdate } }
+          );
+
+      if (result.modifiedCount === 1) {
+          return {
+              status: true,
+              message: "Booking status updated successfully",
+          };
+      } else {
+          return {
+              status: false,
+              message: "Failed to update booking status",
+          };
+      }
+  } catch (error) {
+      return {
+          status: false,
+          message: "Error updating booking status",
+          error: error.message,
+      };
+  }
+};
   
   
-  module.exports = { getOrderUserById, getAllOrderData ,removeFromOrder};
+  module.exports = { getOrderUserById, getAllOrderData ,removeFromOrder,updateBookingStatus};
   

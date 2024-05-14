@@ -291,13 +291,15 @@ app.post("/api/get_subscription/check", async (req, res) => {
 app.post("/api/v1/create-onbook", async (req, res) => {
     const { LoginedUserId, productId } = req.body;
     const createdAt = new Date();
-
+// Generate booking code
+const bookingCode = generateBookingCode();
     // Define the data to be inserted into the database
     const formData = {
         userId: LoginedUserId,
         productId: productId,
         createdAt: createdAt,
-        status:'pending'
+        status:'PENDING',
+        bookingCodes: bookingCode 
     };
 
     try {
@@ -315,7 +317,12 @@ app.post("/api/v1/create-onbook", async (req, res) => {
     }
 });
 
-
+// Define a function to generate a 4-digit random code
+const generateBookingCode = () => {
+    // Generate a random 4-digit code
+    const code = Math.floor(1000 + Math.random() * 9000);
+    return code.toString(); // Convert it to string
+};
 
 // Get the latest products
 app.get('/api/product/latest', async (req, res) => {

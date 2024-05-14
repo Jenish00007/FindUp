@@ -1,6 +1,7 @@
 const { mongoConfig } = require("../config");
 const MongoDB = require("./mongodb.service");
 const { ObjectId } = require('mongodb');
+
 const getAllUserData = async () => {
   try {
     let userObject = await MongoDB.db

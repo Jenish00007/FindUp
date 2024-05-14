@@ -1,5 +1,5 @@
 var express = require("express");
-const { getAllOrderData ,getOrderUserById,removeFromOrder} = require("../services/order.service");
+const { getAllOrderData ,getOrderUserById,removeFromOrder,updateBookingStatus} = require("../services/order.service");
 var router = express.Router();
 
 router.get("/getall", async (req, res) => {
@@ -25,4 +25,18 @@ router.delete("/delete", async (req, res) => {
     res.status(500).json({ status: false, message: "Internal server error" });
   }
 });
+// Update booking status
+router.post("/updatestatus", async (req, res) => {
+  try {
+      const productId = req.body.productId;
+      const selectedStep = req.body.selectedStep;
+      console.log(selectedStep,productId)
+      await updateBookingStatus(productId, selectedStep);
+      res.json({ status: true, message: "Booking status updated successfully" });
+  } catch (error) {
+      console.error("Error updating booking status:", error.message);
+      res.status(500).json({ status: false, message: "Internal server error" });
+  }
+});
+
 module.exports = router;
