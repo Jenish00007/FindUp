@@ -4,23 +4,7 @@ const {
 } = require("../services/follow.service");
 var router = express.Router();
 
-// router.get("/", async (req, res) => {
-//   let response = await getAllShop();
-//   res.json(response);
-// });
 
-// router.get("/:shopId", async (req, res) => {
-//   let shopId = req?.params?.shopId;
-//   let response = await getOneShopById(shopId);
-//   res.json(response);
-// });
-
-// router.post("/:UserId", async (req, res) => {
-//   let { foodId } = req?.params;
-//   let username = req?.username;
-//   let response = await addToCart({ foodId, username });
-//   res.json(response);
-// });
 router.post("/check", async (req, res, next) => {
 
   let shopId = req.body.shopId;

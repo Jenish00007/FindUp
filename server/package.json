@@ -19,6 +19,7 @@
     "detect-libc": "^2.0.3",
     "dotenv": "^16.4.5",
     "express": "~4.16.1",
+    "haversine-distance": "^1.2.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "jsonwebtoken": "^8.5.1",
