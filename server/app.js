@@ -92,6 +92,7 @@ app.post('/api/shop/shopregister', upload.single('shopLogo'), async (req, res) =
             shopMobileNumber,
             location_latitude,
             location_longitude,
+            shopAddress,
             userId
         } = req.body;
 
@@ -102,6 +103,7 @@ app.post('/api/shop/shopregister', upload.single('shopLogo'), async (req, res) =
             shopName: shopName,
             shopVerificationId: shopVerificationId,
             shopMobileNumber: shopMobileNumber,
+            shopAddress:shopAddress,
             location: {
                 latitude,
                 longitude
@@ -378,6 +380,9 @@ app.get('/api/product/trending', async (req, res) => {
 
 // Define the route to calculate the distance
 const haversine = require('haversine-distance');
+
+
+
 
 app.post('/api/calculate-distance', async (req, res) => {
     const { latitude, longitude, maxDistance } = req.body;
