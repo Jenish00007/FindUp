@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "65fe854f699969e6d9a8afd6"
+  },
+  "name": "Laptop",
+  "icon": {
+    "url": "https://media.graphassets.com/6PQsctfGScSOKL2uaAaD"
+  },
+  "categoryId": "65fe86ff699969e6d9a8aff1"
+},
+{
+  "_id": {
+    "$oid": "65fe854f699969e6d9a8afd7"
+  },
+  "name": "Mobile",
+  "icon": {
+    "url": "https://media.graphassets.com/YptTQGoKS02thO8J9tjM"
+  },
+  "categoryId": "65fe86ff699969e6d9a8aff1"
+},
+{
+  "_id": {
+    "$oid": "65fe854f699969e6d9a8afd8"
+  },
+  "name": "Car",
+  "icon": {
+    "url": "https://media.graphassets.com/1j3g69b6SsqJ4unrUFWu"
+  },
+  "categoryId": "65ffc933e6ab5ef83aeede26"
+},
+{
+  "_id": {
+    "$oid": "65fe854f699969e6d9a8afd9"
+  },
+  "name": "Bike",
+  "icon": {
+    "url": "https://media.graphassets.com/sU21qEcTWay5HO9RdSxU"
+  },
+  "categoryId": "65ffc933e6ab5ef83aeede26"
+},
+{
+  "_id": {
+    "$oid": "65fe854f699969e6d9a8afda"
+  },
+  "name": "Fridge",
+  "icon": {
+    "url": "https://media.graphassets.com/e7IwkSdbRbalmRJWTmY4"
+  },
+  "categoryId": "65fe86ff699969e6d9a8aff2"
+},
+{
+  "_id": {
+    "$oid": "65fe854f699969e6d9a8afdb"
+  },
+  "name": "T-shirt",
+  "icon": {
+    "url": "https://media.graphassets.com/Ya2MLVuQcu50Zw2lfBAw"
+  },
+  "categoryId": "65fe86ff699969e6d9a8aff5"
+},
+{
+  "_id": {
+    "$oid": "6627f80518b63c8ad611b8a0"
+  },
+  "name": "Watch",
+  "icon": {
+    "url": "https://media.graphassets.com/kFPrsDgTSumecSDbX4te"
+  },
+  "categoryId": "65fe86ff699969e6d9a8aff1"
+},
+{
+  "_id": {
+    "$oid": "6627fc6b18b63c8ad611b8a3"
+  },
+  "name": "Drone",
+  "icon": {
+    "url": "https://media.graphassets.com/kFPrsDgTSumecSDbX4te"
+  },
+  "categoryId": "65fe86ff699969e6d9a8aff1"
+},
+{
+  "_id": {
+    "$oid": "6627fe4618b63c8ad611b8a4"
+  },
+  "name": "Shirt",
+  "icon": {
+    "url": "https://media.graphassets.com/Ya2MLVuQcu50Zw2lfBAw"
+  },
+  "categoryId": "65fe86ff699969e6d9a8aff5"
+},
+{
+  "_id": {
+    "$oid": "6628007718b63c8ad611b8a5"
+  },
+  "name": "Gadjects",
+  "icon": {
+    "url": "https://media.graphassets.com/Ya2MLVuQcu50Zw2lfBAw"
+  },
+  "categoryId": "65fe86ff699969e6d9a8aff1"
+}]

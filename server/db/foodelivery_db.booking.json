@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "663cc0682801ac477d7c5bd5"
+  },
+  "userId": "65f7f7cd99abb5d6de034bef",
+  "productId": "6628013d5770fda9f4af1d73",
+  "createdAt": {
+    "$date": "2024-05-09T12:24:08.164Z"
+  },
+  "status": "DELIVERED",
+  "bookingCodes": "9504"
+},
+{
+  "_id": {
+    "$oid": "663cc113dcfb158c51f7fce0"
+  },
+  "userId": "65f7f7cd99abb5d6de034bef",
+  "productId": "6635d25e34e67c6ff645711f",
+  "createdAt": {
+    "$date": "2024-05-09T12:26:59.259Z"
+  },
+  "status": "DELIVERED",
+  "bookingCodes": "4357"
+},
+{
+  "_id": {
+    "$oid": "664a13e93a67e32e40a326b1"
+  },
+  "userId": "65f6f2e74953e4272b80c579",
+  "productId": "6628013d5770fda9f4af1d73",
+  "createdAt": {
+    "$date": "2024-05-19T14:59:53.667Z"
+  },
+  "status": "PENDING",
+  "bookingCodes": "1568"
+}]

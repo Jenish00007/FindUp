@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "663341237d7fa61df5021eee"
+  },
+  "plan": "Basic",
+  "userId": "65f7f7cd99abb5d6de034bef",
+  "transactionId": "9778787878",
+  "createdAt": {
+    "$date": "2024-05-02T07:30:43.625Z"
+  },
+  "planPrice": 99,
+  "status": "inactive"
+}]

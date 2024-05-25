@@ -1,0 +1,242 @@
+[{
+  "_id": {
+    "$oid": "65fd2136668bc1725f7d76c2"
+  },
+  "name": "Smartphone",
+  "price": 599.99,
+  "images": [
+    {
+      "url": "https://media.graphassets.com/wgVqMTucQohwIY23yVPt"
+    },
+    {
+      "url": "https://example.com/smartphone_image2.jpg"
+    }
+  ],
+  "shopId": "65fe85e2699969e6d9a8afdf",
+  "subCategoryId": 1,
+  "categoryId": "65fe86ff699969e6d9a8aff1"
+},
+{
+  "_id": {
+    "$oid": "65fd2136668bc1725f7d76c3"
+  },
+  "name": "Laptop",
+  "price": 999.99,
+  "images": [
+    {
+      "url": "https://media.graphassets.com/NOY8xQ7OTmOE8zv9YywX"
+    },
+    {
+      "url": "https://example.com/laptop_image2.jpg"
+    }
+  ],
+  "shopId": "65fe85e2699969e6d9a8afe0",
+  "subCategoryId": 1,
+  "categoryId": "65fe86ff699969e6d9a8aff1"
+},
+{
+  "_id": {
+    "$oid": "65fd2136668bc1725f7d76c4"
+  },
+  "name": "T-Shirt",
+  "price": 19.99,
+  "images": [
+    {
+      "url": "https://media.graphassets.com/zbs9UMIJSqusGFUvaV4g"
+    },
+    {
+      "url": "https://example.com/tshirt_image2.jpg"
+    }
+  ],
+  "shopId": "65fe85e2699969e6d9a8afdf",
+  "subCategoryId": 2,
+  "categoryId": "65fe86ff699969e6d9a8aff5"
+},
+{
+  "_id": {
+    "$oid": "65fe8639699969e6d9a8afe7"
+  },
+  "images": [
+    {
+      "url": "https://media.graphassets.com/TKIt3eJ5StWldiqIaNrF"
+    }
+  ],
+  "name": "Snapback",
+  "price": 1299,
+  "reviews": [],
+  "shopId": "65fe85e2699969e6d9a8afdf",
+  "categoryId": "65fe86ff699969e6d9a8aff5"
+},
+{
+  "_id": {
+    "$oid": "65fe8639699969e6d9a8afe8"
+  },
+  "images": [
+    {
+      "url": "https://media.graphassets.com/zDL8SdxFQYakhtGFDY5X"
+    }
+  ],
+  "name": "Unisex Zip Hoodie",
+  "price": 3999,
+  "reviews": [
+    {
+      "id": "ckn6b4xvcxmaj0b0714kxy9na",
+      "rating": null
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe8639699969e6d9a8afe9"
+  },
+  "images": [
+    {
+      "url": "https://media.graphassets.com/tqH1J0EHQ0eudkze9U8l"
+    }
+  ],
+  "name": "Mug",
+  "price": 1499,
+  "reviews": [
+    {
+      "id": "ckn432ws8gw9g0c48r70dpv09",
+      "rating": null
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe8639699969e6d9a8afea"
+  },
+  "images": [
+    {
+      "url": "https://media.graphassets.com/8yxDhryaTimJg6oN9Uac"
+    }
+  ],
+  "name": "Short Sleeve Tee",
+  "price": 1999,
+  "reviews": [
+    {
+      "id": "ckml99f2wso5b0b003idez8a3",
+      "rating": null
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe8639699969e6d9a8afeb"
+  },
+  "images": [
+    {
+      "url": "https://media.graphassets.com/hVZAVhaQwCDmucSsuS07"
+    }
+  ],
+  "name": "Tote Bag",
+  "price": 1299,
+  "reviews": [
+    {
+      "id": "ckn7uwzzs9odc0c11ut54fo9v",
+      "rating": null
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe8639699969e6d9a8afec"
+  },
+  "images": [
+    {
+      "url": "https://media.graphassets.com/GI2ufeRTRmWPrP2aneGK"
+    }
+  ],
+  "name": "Backpack",
+  "price": 4999,
+  "reviews": [
+    {
+      "id": "ckmic7dj49pj10b00ylgyrvmk",
+      "rating": null
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "66211e82c6d5472a8c94d362"
+  },
+  "name": "test51",
+  "price": 100,
+  "description": "jghg",
+  "images": [
+    {
+      "url": "Products\\Product_Image_1713446530104.jpeg"
+    }
+  ],
+  "subCategoryId": "65fe854f699969e6d9a8afd6",
+  "CategoryId": "65fe86ff699969e6d9a8aff1"
+},
+{
+  "_id": {
+    "$oid": "6627fab346a5b3b0c1d78d65"
+  },
+  "name": "EMPORIO ARMANI WATCH",
+  "price": 2199,
+  "description": "🔥 *_EMPORIO ARMANI WATCH_* 🔥\n\n• 7AA High Premium Quality For Gents 👧\n• Date Movement With All Chronograph Working 🤗\n• Metal Strap Like Same Original And Lock Looking Awesome",
+  "images": [
+    {
+      "url": "Products\\Product_Image_1713896108946.jpeg"
+    }
+  ],
+  "shopId": "6620ce3193558a34e5877130",
+  "subCategoryId": "6627f80518b63c8ad611b8a0",
+  "categoryId": "65fe86ff699969e6d9a8aff1"
+},
+{
+  "_id": {
+    "$oid": "6627fcf246a5b3b0c1d78d69"
+  },
+  "name": "E99 Pro Drone",
+  "price": 2200,
+  "description": "*Latest Arrival🔥*\n\n*E99 Pro Drone❤*\n\n•Dual Camera\n•Dual Battery\n•Height 70 Meters Range 150 Meters\n• Long Battery Life\n•4K Resolution Video \n\n*Cash On Delivery Available*🔥",
+  "images": [
+    {
+      "url": "Products\\Product_Image_1713896683440.jpeg"
+    }
+  ],
+  "shopId": "6620ce3193558a34e5877130",
+  "subCategoryId": "6627fc6b18b63c8ad611b8a3",
+  "categoryId": "65fe86ff699969e6d9a8aff1"
+},
+{
+  "_id": {
+    "$oid": "6628013d5770fda9f4af1d73"
+  },
+  "name": "Airpods Pro2",
+  "price": 1999,
+  "description": "*3 in 1 Combo🔥*\n\n•Airpods Pro 2 \n•Magsafe (5000 Mah Capacity)\n•Airpods Pro Case\n\n•Magsafe Supports to Iphone Also\n\n\n*Cash On Delivery Available",
+  "images": [
+    {
+      "url": "Products\\Product_Image_1713897785520.jpeg"
+    }
+  ],
+  "shopId": "660d19088866debbd72004bd",
+  "categoryId": "65fe86ff699969e6d9a8aff1",
+  "subCategoryId": "6628007718b63c8ad611b8a5"
+},
+{
+  "_id": {
+    "$oid": "6635d25e34e67c6ff645711f"
+  },
+  "name": "fhgfh",
+  "price": 100,
+  "description": "gfgfcfgfhgg",
+  "images": [
+    {
+      "url": "Products\\Product_Image_1714803294111.jpeg"
+    }
+  ],
+  "shopId": "6620ce3193558a34e5877130",
+  "categoryId": "65fe86ff699969e6d9a8aff1",
+  "subCategoryId": "65fe854f699969e6d9a8afd6",
+  "createdAt": {
+    "$date": "2024-05-04T06:14:54.121Z"
+  },
+  "productStatus": ""
+}]

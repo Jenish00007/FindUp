@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "65fd1f20668bc1725f7d76ad"
+  },
+  "name": "Slider 1",
+  "image": {
+    "url": "https://media.graphassets.com/N0w6ru9JQBC41mdH3Czw"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd1f20668bc1725f7d76ae"
+  },
+  "name": "Slider 2",
+  "image": {
+    "url": "https://media.graphassets.com/ITm1z8u3RNu8QBqpUahu"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fd1f20668bc1725f7d76af"
+  },
+  "name": "Slider 3",
+  "image": {
+    "url": "https://media.graphassets.com/N0w6ru9JQBC41mdH3Czw"
+  }
+}]

@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "65fe86ff699969e6d9a8aff1"
+  },
+  "name": "Electronics",
+  "icon": {
+    "url": "https://media.graphassets.com/bGfx4EGBSAW07SW9Uh74"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fe86ff699969e6d9a8aff2"
+  },
+  "name": "Furniture",
+  "icon": {
+    "url": "https://media.graphassets.com/xH4WJklTaOEHxXIQL56Q"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fe86ff699969e6d9a8aff3"
+  },
+  "name": "Beauty ",
+  "icon": {
+    "url": "https://media.graphassets.com/R3RxMPdS4i19uOWGKPvg"
+  }
+},
+{
+  "_id": {
+    "$oid": "65fe86ff699969e6d9a8aff5"
+  },
+  "name": "Clothing",
+  "icon": {
+    "url": "https://media.graphassets.com/8V9gRs89QxK6D5Ti0yV5"
+  }
+},
+{
+  "_id": {
+    "$oid": "65ffc933e6ab5ef83aeede26"
+  },
+  "name": "Vehicles",
+  "icon": {
+    "url": "https://media.graphassets.com/0RQa4umRRlTKjfQMqFeU"
+  }
+},
+{
+  "_id": {
+    "$oid": "6629ed9a8edd97793788f9b7"
+  },
+  "name": "Pharmacy",
+  "icon": {
+    "url": "https://media.graphassets.com/GrF4sNnsQOyfOpJ2yC0f"
+  }
+},
+{
+  "_id": {
+    "$oid": "6629edb68edd97793788f9b8"
+  },
+  "name": "Service",
+  "icon": {
+    "url": "https://media.graphassets.com/TJhqNZ70T6mprxGOyV5m"
+  }
+},
+{
+  "_id": {
+    "$oid": "6629f0058edd97793788f9b9"
+  },
+  "name": "Food",
+  "icon": {
+    "url": "https://media.graphassets.com/ULPPH1KUThaxoi4b2yCC"
+  }
+},
+{
+  "_id": {
+    "$oid": "6629f27c8edd97793788f9ba"
+  },
+  "name": "Pets",
+  "icon": {
+    "url": "https://media.graphassets.com/sEOXvXpgRIC7v4fw3E5a"
+  }
+},
+{
+  "_id": {
+    "$oid": "662b6148b0e63c7c562a5851"
+  },
+  "name": "Stationery",
+  "icon": {
+    "url": "https://media.graphassets.com/hVjDRb2CRZiWBtCJEgkK"
+  }
+},
+{
+  "_id": {
+    "$oid": "662b618ab0e63c7c562a5852"
+  },
+  "name": "Gifts",
+  "icon": {
+    "url": "https://media.graphassets.com/8oSmDCG4TRKNbB2mCCie"
+  }
+},
+{
+  "_id": {
+    "$oid": "662b6284b0e63c7c562a5855"
+  },
+  "name": "Construction",
+  "icon": {
+    "url": "https://media.graphassets.com/y4dACl60Slyit4HGEEI5"
+  }
+}]

@@ -1,0 +1,127 @@
+[{
+  "_id": {
+    "$oid": "65fe85e2699969e6d9a8afdf"
+  },
+  "shopName": "Hello Mobiles",
+  "shopMobileNumber": "9888787878",
+  "shopAddress": "Verkilambi",
+  "shopUserName": "Hello_Jenish",
+  "shopLogo": {
+    "url": "Products\\Product_Image_1713896108946.jpeg"
+  },
+  "shopVerificationId": 12345677,
+  "followers": [
+    "",
+    "65f7f7cd99abb5d6de034bef"
+  ],
+  "userId": "65fae5347c78d61d3332c655"
+},
+{
+  "_id": {
+    "$oid": "65fe85e2699969e6d9a8afe0"
+  },
+  "shopName": "Jo Mobiles",
+  "shopMobileNumber": "9898989898",
+  "shopAddress": "Verkilambi",
+  "shopUserName": "Jo_Mobiles",
+  "shopLogo": {
+    "url": "Products\\Product_Image_1713897105911.jpeg"
+  },
+  "shopVerificationId": 12345678,
+  "followers": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe85e2699969e6d9a8afe1"
+  },
+  "shopName": "Sara Laptops",
+  "shopMobileNumber": "6575676567",
+  "shopAddress": "Marthandam",
+  "shopUserName": "Sara_Laptops",
+  "shopLogo": {
+    "url": "Products\\Product_Image_1713897785520.jpeg"
+  },
+  "shopVerificationId": 232435646,
+  "followers": [
+    ""
+  ],
+  "userId": "65fe58c8ff975d949ab1d933"
+},
+{
+  "_id": {
+    "$oid": "65fe85e2699969e6d9a8afe2"
+  },
+  "shopName": "Max Fashion",
+  "shopMobileNumber": "76576767767",
+  "shopAddress": "Nagercoil",
+  "shopUserName": "Max_12",
+  "shopLogo": {
+    "url": "Products\\Product_Image_1713896683440.jpeg"
+  },
+  "shopVerificationId": 13434545,
+  "followers": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "660d19088866debbd72004bd"
+  },
+  "shopName": "shop jen",
+  "shopVerificationId": "9867567565",
+  "shopMobileNumber": "7418291374",
+  "shopLogo": {
+    "url": "Products\\Product_Image_1713897785520.jpeg"
+  },
+  "userId": "65f7f7cd99abb5d6de034bef",
+  "location": {
+    "latitude": 37.4220936,
+    "longitude": -122.083922
+  },
+  "followers": [
+    "65fe58c8ff975d949ab1d933",
+    "65f6f2e74953e4272b80c579"
+  ],
+  "shopAddress": "kallankuzhi",
+  "reviews": [
+    "1"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6620ce3193558a34e5877130"
+  },
+  "shopName": "A4Idea",
+  "shopVerificationId": "8888888888",
+  "shopMobileNumber": "9087282343",
+  "location": {
+    "latitude": 38.4220936,
+    "longitude": -122.083922
+  },
+  "shopLogo": {
+    "url": "Images\\shopLogo_1713425969607.jpeg"
+  },
+  "userId": "6620c28df85b20d0b7953264",
+  "followers": [
+    "65f7f7cd99abb5d6de034bef"
+  ]
+},
+{
+  "_id": {
+    "$oid": "665023d57d50502e4b2b409c"
+  },
+  "shopName": "Test",
+  "shopVerificationId": "878767",
+  "shopMobileNumber": "8987867676",
+  "shopAddress": "Kallankuzhi",
+  "location": {
+    "latitude": 37.4220936,
+    "longitude": -122.083922
+  },
+  "shopLogo": {
+    "url": "Images\\shopLogo_1716528084881.jpeg"
+  },
+  "userId": "65f6f2e74953e4272b80c579"
+}]
