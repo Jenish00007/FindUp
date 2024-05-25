@@ -449,4 +449,68 @@ app.post('/api/calculate-distance', async (req, res) => {
 
 
 
+app.post('/api/nearby-products', async (req, res) => {
+    const { latitude, longitude, maxDistance } = req.body;
+
+    if (!latitude || !longitude) {
+        return res.status(400).json({
+            status: false,
+            message: "Latitude and longitude are required"
+        });
+    }
+
+    if (maxDistance === undefined) {
+        return res.status(400).json({
+            status: false,
+            message: "maxDistance is required"
+        });
+    }
+
+    try {
+        const shops = await MongoDB.db
+            .collection(mongoConfig.collections.SHOPS)
+            .find()
+            .toArray();
+
+        const nearbyShops = shops.map(shop => {
+            if (shop.location && shop.location.latitude && shop.location.longitude) {
+                const shopLocation = {
+                    lat: shop.location.latitude,
+                    lon: shop.location.longitude
+                };
+
+                const userLocation = {
+                    lat: latitude,
+                    lon: longitude
+                };
+
+                const distance = haversine(userLocation, shopLocation);
+
+                return {
+                    ...shop, // spread the shop object to include all its properties
+                    distance: Math.round(distance),
+                };
+            } else {
+                return null;
+            }
+        }).filter(shop => shop !== null && shop.distance <= maxDistance);
+
+        nearbyShops.sort((a, b) => a.distance - b.distance);
+
+        res.status(200).json({
+            status: true,
+            message: "Nearby shops retrieved successfully",
+            shops: nearbyShops
+        });
+    } catch (error) {
+        console.error("Error retrieving nearby shops:", error);
+        res.status(500).json({
+            status: false,
+            message: "An error occurred while retrieving nearby shops",
+            error: error.message
+        });
+    }
+});
+
+
 module.exports = app;
