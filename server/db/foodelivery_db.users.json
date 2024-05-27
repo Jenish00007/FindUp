@@ -1,0 +1,75 @@
+[{
+  "_id": {
+    "$oid": "65f6f2e74953e4272b80c579"
+  },
+  "username": "user jenish",
+  "email": "jenish@gmail.com",
+  "mobileNumber": "6657657656",
+  "password": "$2b$10$K9mYeBphPKmBAY35d4aiIuxsK8G3fY4UZQdet60LyEozt73gEnB0a",
+  "favouriteProductId": [
+    ""
+  ],
+  "following": [
+    "65fe85e2699969e6d9a8afdf",
+    "660d19088866debbd72004bd"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f7f7cd99abb5d6de034bef"
+  },
+  "username": "Jenish",
+  "email": "Jenish.m0708@gmail.com",
+  "mobileNumber": "7418291374",
+  "password": "$2b$10$.9vY6MgYxxp8tIGAUzAoYOJCc9m49rfVBF7YWFakcTZj4owEujx2K",
+  "favouriteProductId": [
+    "662e276cd0bad323534f641e",
+    "6628013d5770fda9f4af1d73"
+  ],
+  "following": [
+    "65fe85e2699969e6d9a8afe0",
+    "65fe85e2699969e6d9a8afe2",
+    "65fe85e2699969e6d9a8afdf",
+    "6620ce3193558a34e5877130"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fae5347c78d61d3332c655"
+  },
+  "username": "jenu",
+  "email": "jenu@gmail.com",
+  "mobileNumber": "9997886565",
+  "password": "$2b$10$Shc6qOjVTXjpAguXDc9KCukMLCsjOKuzZ8br4GEobPOOPyKCtyj9a",
+  "favouriteProductId": [
+    ""
+  ],
+  "following": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "65fe58c8ff975d949ab1d933"
+  },
+  "username": "testing",
+  "email": "Jen@gmail.com",
+  "mobileNumber": "7857657566",
+  "password": "$2b$10$FHDHZBLGuKOM6fv7D5gtZe0kAwLW0gRKCO8xL.SCDG0PHrqVmFr26",
+  "userimage": "https://media.graphassets.com/bGfx4EGBSAW07SW9Uh74",
+  "favouriteProductId": [
+    ""
+  ],
+  "following": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "6620c28df85b20d0b7953264"
+  },
+  "username": "Fenix",
+  "email": "Fenix@gmail.com",
+  "mobileNumber": "8888888888",
+  "password": "$2b$10$4sPgJLOWYbmda1eOpRAoHuBIrsYLZd6wDOMxaoqSQZFwRb4HxMEBe"
+}]
