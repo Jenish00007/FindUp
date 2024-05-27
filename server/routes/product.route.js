@@ -4,6 +4,7 @@ var router = express.Router();
 
 router.get("/", async (req, res) => {
   let response = await getAllProducts();
+  console.log(response,'response')
   res.json(response);
 });
 
