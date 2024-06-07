@@ -4,7 +4,7 @@
   },
   "name": "Laptop",
   "icon": {
-    "url": "https://media.graphassets.com/6PQsctfGScSOKL2uaAaD"
+    "url": "Images/subcategories/laptop.png"
   },
   "categoryId": "65fe86ff699969e6d9a8aff1"
 },
@@ -14,7 +14,7 @@
   },
   "name": "Mobile",
   "icon": {
-    "url": "https://media.graphassets.com/YptTQGoKS02thO8J9tjM"
+    "url": "Images/subcategories/mobile.png"
   },
   "categoryId": "65fe86ff699969e6d9a8aff1"
 },
@@ -24,7 +24,7 @@
   },
   "name": "Car",
   "icon": {
-    "url": "https://media.graphassets.com/1j3g69b6SsqJ4unrUFWu"
+    "url": "Images/subcategories/car.png"
   },
   "categoryId": "65ffc933e6ab5ef83aeede26"
 },
@@ -34,7 +34,7 @@
   },
   "name": "Bike",
   "icon": {
-    "url": "https://media.graphassets.com/sU21qEcTWay5HO9RdSxU"
+    "url": "Images/subcategories/bike.png"
   },
   "categoryId": "65ffc933e6ab5ef83aeede26"
 },
@@ -44,7 +44,7 @@
   },
   "name": "Fridge",
   "icon": {
-    "url": "https://media.graphassets.com/e7IwkSdbRbalmRJWTmY4"
+    "url": "Images/subcategories/fridge.png"
   },
   "categoryId": "65fe86ff699969e6d9a8aff2"
 },
@@ -54,7 +54,7 @@
   },
   "name": "T-shirt",
   "icon": {
-    "url": "https://media.graphassets.com/Ya2MLVuQcu50Zw2lfBAw"
+    "url": "Images/subcategories/t-shirt.png"
   },
   "categoryId": "65fe86ff699969e6d9a8aff5"
 },
@@ -64,7 +64,7 @@
   },
   "name": "Watch",
   "icon": {
-    "url": "https://media.graphassets.com/kFPrsDgTSumecSDbX4te"
+    "url": "Images/subcategories/watch.png"
   },
   "categoryId": "65fe86ff699969e6d9a8aff1"
 },
@@ -74,7 +74,7 @@
   },
   "name": "Drone",
   "icon": {
-    "url": "https://media.graphassets.com/kFPrsDgTSumecSDbX4te"
+    "url": "Images/subcategories/drone.png"
   },
   "categoryId": "65fe86ff699969e6d9a8aff1"
 },
@@ -84,7 +84,7 @@
   },
   "name": "Shirt",
   "icon": {
-    "url": "https://media.graphassets.com/Ya2MLVuQcu50Zw2lfBAw"
+    "url": "Images/subcategories/shirt.png"
   },
   "categoryId": "65fe86ff699969e6d9a8aff5"
 },
@@ -94,7 +94,7 @@
   },
   "name": "Gadjects",
   "icon": {
-    "url": "https://media.graphassets.com/Ya2MLVuQcu50Zw2lfBAw"
+    "url": "Images/subcategories/gadjects.png"
   },
   "categoryId": "65fe86ff699969e6d9a8aff1"
 }]

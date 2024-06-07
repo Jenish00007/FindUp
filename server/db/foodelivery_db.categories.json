@@ -4,7 +4,7 @@
   },
   "name": "Electronics",
   "icon": {
-    "url": "https://media.graphassets.com/bGfx4EGBSAW07SW9Uh74"
+    "url": "Images/categories/electronics.png"
   }
 },
 {
@@ -13,7 +13,7 @@
   },
   "name": "Furniture",
   "icon": {
-    "url": "https://media.graphassets.com/xH4WJklTaOEHxXIQL56Q"
+    "url": "Images/categories/furniture.png"
   }
 },
 {
@@ -22,7 +22,7 @@
   },
   "name": "Beauty ",
   "icon": {
-    "url": "https://media.graphassets.com/R3RxMPdS4i19uOWGKPvg"
+    "url": "Images/categories/beauty.png"
   }
 },
 {
@@ -31,7 +31,7 @@
   },
   "name": "Clothing",
   "icon": {
-    "url": "https://media.graphassets.com/8V9gRs89QxK6D5Ti0yV5"
+    "url": "Images/categories/clothing.png"
   }
 },
 {
@@ -40,7 +40,7 @@
   },
   "name": "Vehicles",
   "icon": {
-    "url": "https://media.graphassets.com/0RQa4umRRlTKjfQMqFeU"
+    "url": "Images/categories/vehicles.png"
   }
 },
 {
@@ -49,7 +49,7 @@
   },
   "name": "Pharmacy",
   "icon": {
-    "url": "https://media.graphassets.com/GrF4sNnsQOyfOpJ2yC0f"
+    "url": "Images/categories/pharmacy.png"
   }
 },
 {
@@ -58,7 +58,7 @@
   },
   "name": "Service",
   "icon": {
-    "url": "https://media.graphassets.com/TJhqNZ70T6mprxGOyV5m"
+    "url": "Images/categories/service.png"
   }
 },
 {
@@ -67,7 +67,7 @@
   },
   "name": "Food",
   "icon": {
-    "url": "https://media.graphassets.com/ULPPH1KUThaxoi4b2yCC"
+    "url": "Images/categories/food.png"
   }
 },
 {
@@ -76,7 +76,7 @@
   },
   "name": "Pets",
   "icon": {
-    "url": "https://media.graphassets.com/sEOXvXpgRIC7v4fw3E5a"
+    "url": "Images/categories/pets.png"
   }
 },
 {
@@ -85,7 +85,7 @@
   },
   "name": "Stationery",
   "icon": {
-    "url": "https://media.graphassets.com/hVjDRb2CRZiWBtCJEgkK"
+    "url": "Images/categories/stationery.png"
   }
 },
 {
@@ -94,7 +94,7 @@
   },
   "name": "Gifts",
   "icon": {
-    "url": "https://media.graphassets.com/8oSmDCG4TRKNbB2mCCie"
+    "url": "Images/categories/gifts.png"
   }
 },
 {
@@ -103,6 +103,6 @@
   },
   "name": "Construction",
   "icon": {
-    "url": "https://media.graphassets.com/y4dACl60Slyit4HGEEI5"
+    "url": "Images/categories/construction.png"
   }
 }]
