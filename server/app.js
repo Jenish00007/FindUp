@@ -421,7 +421,7 @@ app.post('/api/calculate-distance', async (req, res) => {
                     lon: longitude
                 };
 
-                const distanceInMeters = haversine(userLocation, shopLocation) * 1000;
+                const distanceInMeters = haversine(userLocation, shopLocation)
                 const distanceInKilometers = (distanceInMeters / 1000).toFixed(2);
 
                 return {
