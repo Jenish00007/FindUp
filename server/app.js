@@ -384,6 +384,8 @@ const haversine = require('haversine-distance');
 
 
 
+
+
 app.post('/api/calculate-distance', async (req, res) => {
     const { latitude, longitude, maxDistance } = req.body;
 
@@ -419,11 +421,12 @@ app.post('/api/calculate-distance', async (req, res) => {
                     lon: longitude
                 };
 
-                const distance = haversine(userLocation, shopLocation);
+                const distanceInMeters = haversine(userLocation, shopLocation) * 1000;
+                const distanceInKilometers = (distanceInMeters / 1000).toFixed(2);
 
                 return {
-                    ...shop, // spread the shop object to include all its properties
-                    distance: Math.round(distance),
+                    ...shop,
+                    distance: parseFloat(distanceInKilometers),
                 };
             } else {
                 return null;
@@ -446,6 +449,7 @@ app.post('/api/calculate-distance', async (req, res) => {
         });
     }
 });
+
 
 
 
