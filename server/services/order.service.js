@@ -77,7 +77,7 @@ const getOrderUserById = async (userId) => {
     }
   };
 
-  const removeFromOrder = async (userId) => {
+const removeFromOrder = async (userId, productId) => {
     try {
         // Convert userId to ObjectId
         const objectId = new ObjectId(userId);
@@ -88,15 +88,22 @@ const getOrderUserById = async (userId) => {
             .findOne({ _id: objectId });
 
         if (userExists) {
-            // Delete orders associated with user
-            await MongoDB.db
+            // Delete specific product from user's orders
+            const result = await MongoDB.db
                 .collection(mongoConfig.collections.BOOKINGS)
-                .deleteMany({ userId: userId });
+                .deleteOne({ userId: userId, productId: productId });
 
-            return {
-                status: true,
-                message: "Orders deleted successfully",
-            };
+            if (result.deletedCount > 0) {
+                return {
+                    status: true,
+                    message: "Product deleted from orders successfully",
+                };
+            } else {
+                return {
+                    status: false,
+                    message: "No order found with the given product ID for the user",
+                };
+            }
         } else {
             return {
                 status: false,
@@ -106,11 +113,12 @@ const getOrderUserById = async (userId) => {
     } catch (error) {
         return {
             status: false,
-            message: "Failed to delete orders",
-            error: `Error deleting orders: ${error.message}`,
+            message: "Failed to delete product from orders",
+            error: `Error deleting product from orders: ${error.message}`,
         };
     }
 };
+
 
 const updateBookingStatus = async (productId, selectedStep) => {
   try {

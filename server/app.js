@@ -517,4 +517,43 @@ app.post('/api/nearby-products', async (req, res) => {
 });
 
 
+
+
+// Endpoint to get ordered products for a specific user
+app.get('/api/orders/:userId', async (req, res) => {
+    const { userId } = req.params;
+    
+    try {
+        // Fetch orders for the user
+        const orders = await MongoDB.db
+            .collection(mongoConfig.collections.BOOKINGS)
+            .find({ userId })
+            .toArray();
+
+        // Extract product IDs from the orders
+        const productIds = orders.map(order => order.productId);
+
+        // Fetch product details for the ordered products
+        const products = await MongoDB.db
+            .collection(mongoConfig.collections.PRODUCTS)
+            .find({ _id: { $in: productIds } })
+            .toArray();
+
+        res.status(200).json({
+            status: true,
+            message: "Ordered products retrieved successfully",
+            products
+        });
+
+    } catch (error) {
+        console.error("Error retrieving ordered products:", error);
+        res.status(500).json({
+            status: false,
+            message: "An error occurred while retrieving ordered products",
+            error: error.message
+        });
+    }
+});
+
+
 module.exports = app;
