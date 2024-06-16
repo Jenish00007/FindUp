@@ -556,4 +556,69 @@ app.get('/api/orders/:userId', async (req, res) => {
 });
 
 
+//search function
+app.get("/api/search_products", async (req, res) => {
+    try {
+        const page = parseInt(req.query.page) - 1 || 0;
+        const limit = parseInt(req.query.limit) || 5;
+        const search = req.query.search || "";
+        let sort = req.query.sort || "rating";
+        let subCategory = req.query.subCategory || "All";
+
+        // Fetch subcategories from the database
+        const subCategories = await MongoDB.db
+            .collection(mongoConfig.collections.SUBCATEGORIES)
+            .find({})
+            .toArray();
+
+        const subCategoryOptions = subCategories.map(subCat => subCat.name);
+
+        // Handle subCategory filtering
+        subCategory === "All"
+            ? (subCategory = [...subCategoryOptions])
+            : (subCategory = req.query.subCategory.split(","));
+        req.query.sort ? (sort = req.query.sort.split(",")) : (sort = [sort]);
+
+        let sortBy = {};
+        if (sort[1]) {
+            sortBy[sort[0]] = sort[1];
+        } else {
+            sortBy[sort[0]] = "asc";
+        }
+
+        // Query the products collection instead of movies
+        const products = await MongoDB.db
+            .collection(mongoConfig.collections.PRODUCTS)
+            .find({ 
+                name: { $regex: search, $options: "i" },
+                // subCategory: { $in: [...subCategory] } // Filter by subCategory
+            })
+            .sort(sortBy)
+            .skip(page * limit)
+            .limit(limit)
+            .toArray();
+
+        const total = await MongoDB.db
+            .collection(mongoConfig.collections.PRODUCTS)
+            .countDocuments({
+                // subCategory: { $in: [...subCategory] },
+                name: { $regex: search, $options: "i" },
+            });
+
+        const response = {
+            error: false,
+            total,
+            page: page + 1,
+            limit,
+            subCategories: subCategoryOptions, // Use dynamically fetched subCategory options
+            products, // Use products instead of movies
+        };
+
+        res.status(200).json(response);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: true, message: "Internal Server Error" });
+    }
+});
+
 module.exports = app;
