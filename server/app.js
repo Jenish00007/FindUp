@@ -18,7 +18,7 @@ var subCategoriesRouter = require("./routes/subCategories.route");
 var categoriesRouter = require("./routes/categories.route");
 var slidersRouter = require("./routes/sliders.route");
 var followRouter = require("./routes/follow.route");
-
+const haversine = require('haversine-distance');
 const MongoDB = require("./services/mongodb.service");
 const multer = require('multer');
 const { mongoConfig } = require("../server/config");
@@ -103,7 +103,7 @@ app.post('/api/shop/shopregister', upload.single('shopLogo'), async (req, res) =
             shopName: shopName,
             shopVerificationId: shopVerificationId,
             shopMobileNumber: shopMobileNumber,
-            shopAddress:shopAddress,
+            shopAddress: shopAddress,
             location: {
                 latitude,
                 longitude
@@ -213,9 +213,6 @@ app.post('/api/product/add_product', upload_Product.single('Product_Image'), asy
 });
 
 
-
-
-
 // Create subscription checkout session endpoint
 app.post("/api/v1/create-subscription-checkout-session", async (req, res) => {
     const { Plan, LoginedUserId, transactionId } = req.body;
@@ -235,7 +232,7 @@ app.post("/api/v1/create-subscription-checkout-session", async (req, res) => {
         transactionId: transactionId,
         createdAt: createdAt,
         planPrice: planPrice,
-        status:''
+        status: ''
     };
 
     try {
@@ -293,15 +290,15 @@ app.post("/api/get_subscription/check", async (req, res) => {
 app.post("/api/v1/create-onbook", async (req, res) => {
     const { LoginedUserId, productId } = req.body;
     const createdAt = new Date();
-// Generate booking code
-const bookingCode = generateBookingCode();
+    // Generate booking code
+    const bookingCode = generateBookingCode();
     // Define the data to be inserted into the database
     const formData = {
         userId: LoginedUserId,
         productId: productId,
         createdAt: createdAt,
-        status:'PENDING',
-        bookingCodes: bookingCode 
+        status: 'PENDING',
+        bookingCodes: bookingCode
     };
 
     try {
@@ -379,15 +376,22 @@ app.get('/api/product/trending', async (req, res) => {
 });
 
 // Define the route to calculate the distance
-const haversine = require('haversine-distance');
-
-
-
-
-
 
 app.post('/api/calculate-distance', async (req, res) => {
-    const { latitude, longitude, maxDistance } = req.body;
+    const {
+        latitude,
+        longitude,
+        maxDistance,
+        page
+    } = req.body;
+
+    const {
+        search = '',
+        sort = 'distance_asc',
+        minlocation = 0,
+        maxlocation = Infinity,
+        subCategory = 'All'
+    } = req.query;
 
     if (!latitude || !longitude) {
         return res.status(400).json({
@@ -403,37 +407,51 @@ app.post('/api/calculate-distance', async (req, res) => {
         });
     }
 
+    const skip = parseInt(page) - 1 || 0;
+    const limit = 10; // Number of shops per page
+
     try {
         const shops = await MongoDB.db
             .collection(mongoConfig.collections.SHOPS)
             .find()
             .toArray();
 
-        const nearbyShops = shops.map(shop => {
-            if (shop.location && shop.location.latitude && shop.location.longitude) {
-                const shopLocation = {
-                    lat: shop.location.latitude,
-                    lon: shop.location.longitude
-                };
+        const nearbyShops = shops
+            .filter(shop => {
+                if (shop.location && shop.location.latitude && shop.location.longitude) {
+                    const shopLocation = { latitude: shop.location.latitude, longitude: shop.location.longitude };
+                    const userLocation = { latitude: parseFloat(latitude), longitude: parseFloat(longitude) };
+                    const distanceInMeters = haversine(userLocation, shopLocation, { unit: 'meter' });
+                    const distanceInKilometers = distanceInMeters / 1000;
 
-                const userLocation = {
-                    lat: latitude,
-                    lon: longitude
-                };
-
-                const distanceInMeters = haversine(userLocation, shopLocation)
-                const distanceInKilometers = (distanceInMeters / 1000).toFixed(2);
-
-                return {
-                    ...shop,
-                    distance: parseFloat(distanceInKilometers),
-                };
-            } else {
-                return null;
-            }
-        }).filter(shop => shop !== null && shop.distance <= maxDistance);
-
-        nearbyShops.sort((a, b) => a.distance - b.distance);
+                    return distanceInKilometers <= parseFloat(maxDistance) &&
+                        distanceInKilometers >= parseFloat(minlocation) &&
+                        distanceInKilometers <= parseFloat(maxlocation) &&
+                        (!search || shop.shopName.toLowerCase().includes(search.toLowerCase())) &&
+                        (subCategory === 'All' || shop.subCategory.includes(subCategory));
+                }
+                return false;
+            })
+            .map(shop => ({
+                ...shop,
+                distance: parseFloat(haversine(
+                    { latitude: parseFloat(latitude), longitude: parseFloat(longitude) },
+                    { latitude: shop.location.latitude, longitude: shop.location.longitude },
+                    { unit: 'meter' }
+                ) / 1000).toFixed(2)
+            }))
+            .sort((a, b) => {
+                if (sort === 'distance_desc') {
+                    return b.distance - a.distance;
+                } else if (sort === 'price_asc') {
+                    return a.price - b.price;
+                } else if (sort === 'price_desc') {
+                    return b.price - a.price;
+                } else {
+                    return a.distance - b.distance; // Default: distance_asc
+                }
+            })
+            .slice(skip * limit, (skip + 1) * limit);
 
         res.status(200).json({
             status: true,
@@ -451,6 +469,73 @@ app.post('/api/calculate-distance', async (req, res) => {
 });
 
 
+
+
+
+
+// app.post('/api/calculate-distance', async (req, res) => {
+//     const { latitude, longitude, maxDistance } = req.body;
+
+//     if (!latitude || !longitude) {
+//         return res.status(400).json({
+//             status: false,
+//             message: "Latitude and longitude are required"
+//         });
+//     }
+
+//     if (maxDistance === undefined) {
+//         return res.status(400).json({
+//             status: false,
+//             message: "maxDistance is required"
+//         });
+//     }
+
+//     try {
+//         const shops = await MongoDB.db
+//             .collection(mongoConfig.collections.SHOPS)
+//             .find()
+//             .toArray();
+
+//         const nearbyShops = shops.map(shop => {
+//             if (shop.location && shop.location.latitude && shop.location.longitude) {
+//                 const shopLocation = {
+//                     lat: shop.location.latitude,
+//                     lon: shop.location.longitude
+//                 };
+
+//                 const userLocation = {
+//                     lat: latitude,
+//                     lon: longitude
+//                 };
+
+//                 const distanceInMeters = haversine(userLocation, shopLocation)
+//                 const distanceInKilometers = (distanceInMeters / 1000).toFixed(2);
+
+//                 return {
+//                     ...shop,
+//                     distance: parseFloat(distanceInKilometers),
+//                 };
+//             } else {
+//                 return null;
+//             }
+//         }).filter(shop => shop !== null && shop.distance <= maxDistance);
+
+//         nearbyShops.sort((a, b) => a.distance - b.distance);
+
+//         res.status(200).json({
+//             status: true,
+//             message: "Nearby shops retrieved successfully",
+//             shops: nearbyShops
+//         });
+//     } catch (error) {
+//         console.error("Error retrieving nearby shops:", error);
+//         res.status(500).json({
+//             status: false,
+//             message: "An error occurred while retrieving nearby shops",
+//             error: error.message
+//         });
+//     }
+// });
 
 
 app.post('/api/nearby-products', async (req, res) => {
@@ -516,13 +601,10 @@ app.post('/api/nearby-products', async (req, res) => {
     }
 });
 
-
-
-
 // Endpoint to get ordered products for a specific user
 app.get('/api/orders/:userId', async (req, res) => {
     const { userId } = req.params;
-    
+
     try {
         // Fetch orders for the user
         const orders = await MongoDB.db
@@ -573,6 +655,9 @@ app.get("/api/search_products", async (req, res) => {
 
         const subCategoryOptions = subCategories.map(subCat => subCat.name);
 
+        const minPrice = parseInt(req.query.minPrice) || 0;
+        const maxPrice = parseInt(req.query.maxPrice) || Infinity;
+
         // Handle subCategory filtering
         subCategory === "All"
             ? (subCategory = [...subCategoryOptions])
@@ -586,11 +671,13 @@ app.get("/api/search_products", async (req, res) => {
             sortBy[sort[0]] = "asc";
         }
 
+
         // Query the products collection instead of movies
         const products = await MongoDB.db
             .collection(mongoConfig.collections.PRODUCTS)
-            .find({ 
+            .find({
                 name: { $regex: search, $options: "i" },
+                price: { $gte: minPrice, $lte: maxPrice },
                 // subCategory: { $in: [...subCategory] } // Filter by subCategory
             })
             .sort(sortBy)
@@ -603,6 +690,7 @@ app.get("/api/search_products", async (req, res) => {
             .countDocuments({
                 // subCategory: { $in: [...subCategory] },
                 name: { $regex: search, $options: "i" },
+                price: { $gte: minPrice, $lte: maxPrice },
             });
 
         const response = {
