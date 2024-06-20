@@ -417,12 +417,13 @@ app.post('/api/calculate-distance', async (req, res) => {
             .find()
             .toArray();
 
-            const nearbyShops = shops
+        const nearbyShops = shops
             .filter(shop => {
                 if (shop.location && shop.location.latitude && shop.location.longitude) {
-                    const shopLocation = new GeoPoint(shop.location.latitude, shop.location.longitude);
-                    const userLocation = new GeoPoint(parseFloat(latitude), parseFloat(longitude));
-                    const distanceInKilometers = shopLocation.distanceTo(userLocation, true); // Distance in km
+                    const shopLocation = { latitude: shop.location.latitude, longitude: shop.location.longitude };
+                    const userLocation = { latitude: parseFloat(latitude), longitude: parseFloat(longitude) };
+                    const distanceInMeters = haversine(userLocation, shopLocation, { unit: 'meter' });
+                    const distanceInKilometers = distanceInMeters / 1000;
 
                     return distanceInKilometers <= parseFloat(maxDistance) &&
                         distanceInKilometers >= parseFloat(minlocation) &&
@@ -434,9 +435,11 @@ app.post('/api/calculate-distance', async (req, res) => {
             })
             .map(shop => ({
                 ...shop,
-                distance: parseFloat(new GeoPoint(shop.location.latitude, shop.location.longitude)
-                    .distanceTo(new GeoPoint(parseFloat(latitude), parseFloat(longitude)), true)
-                ).toFixed(2)
+                distance: parseFloat(haversine(
+                    { latitude: parseFloat(latitude), longitude: parseFloat(longitude) },
+                    { latitude: shop.location.latitude, longitude: shop.location.longitude },
+                    { unit: 'meter' }
+                ) / 1000).toFixed(2)
             }))
             .sort((a, b) => {
                 if (sort === 'distance_desc') {
