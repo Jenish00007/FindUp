@@ -2,6 +2,8 @@ const { mongoConfig } = require("../config");
 const MongoDB = require("./mongodb.service");
 const { ObjectId } = require('mongodb');
 const multer = require('multer');
+const fs = require('fs');
+
 
 const getAllProducts = async () => {
   try {
@@ -68,6 +70,18 @@ const deleteOneProductsById = async (productId) => {
       .findOneAndDelete({ _id: objectId });
 
     if (product.value) {
+      // Assume the image path is stored in the product document
+      const imagePath = product.value.imagePath;
+
+      // Delete the image file
+      fs.unlink(imagePath, (err) => {
+        if (err) {
+          console.error('Error deleting image:', err);
+        } else {
+          console.log('Image deleted successfully:', imagePath);
+        }
+      });
+
       return {
         status: true,
         message: "Product deleted successfully",
