@@ -158,23 +158,23 @@ let upload_Product = multer({
 });
 
 
-app.post('/api/product/add_product', upload_Product.single('Product_Image'), async (req, res) => {
+app.post('/api/product/add_product', upload_Product.array('Product_Images', 3), async (req, res) => {
     try {
-        if (!req.file) {
-            return res.status(400).json({ error: 'No file uploaded' });
+        if (!req.files || req.files.length === 0) {
+            return res.status(400).json({ error: 'No files uploaded' });
         }
 
         const {
             name,
             price,
             description,
+            model,
             shopId,
             categoryId,
             subCategoryId
         } = req.body;
 
-        const imagePath = req.file.path;
-        //console.log(imagePath)
+        const imagePaths = req.files.map(file => file.path);
         const productStatus = '';
         const formattedDate = new Date(); // Get current date and time
         const createdAt = formattedDate.toLocaleDateString('en-GB');
@@ -183,14 +183,15 @@ app.post('/api/product/add_product', upload_Product.single('Product_Image'), asy
             name,
             price: productprice,
             description,
-            images: [{ url: imagePath }],
+            model,
+            images: imagePaths.map(path => ({ url: path })),
             shopId,
             categoryId,
             subCategoryId,
             createdAt,
             productStatus
-        }
-        //console.log(formData)
+        };
+
         const savedUser = await MongoDB.db
             .collection(mongoConfig.collections.PRODUCTS)
             .insertOne(formData);
@@ -214,6 +215,7 @@ app.post('/api/product/add_product', upload_Product.single('Product_Image'), asy
         });
     }
 });
+
 
 // Create subscription checkout session endpoint
 app.post("/api/v1/create-subscription-checkout-session", async (req, res) => {
