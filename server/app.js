@@ -19,7 +19,6 @@ var categoriesRouter = require("./routes/categories.route");
 var slidersRouter = require("./routes/sliders.route");
 var followRouter = require("./routes/follow.route");
 const haversine = require('haversine-distance');
-const GeoPoint = require('geopoint');
 
 const MongoDB = require("./services/mongodb.service");
 const multer = require('multer');
