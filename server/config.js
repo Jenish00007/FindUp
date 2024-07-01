@@ -16,7 +16,7 @@ module.exports = {
       SLIDERS:"sliders",
       ORDERS:'orders',
       BOOKINGS:'booking',
-      TOKEN:'token'
+      TOKEN:'tokens'
     },
   },
   serverConfig: {
