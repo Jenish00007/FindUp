@@ -15,7 +15,8 @@ module.exports = {
       SUBCATEGORIES: "subCategories",
       SLIDERS:"sliders",
       ORDERS:'orders',
-      BOOKINGS:'booking'
+      BOOKINGS:'booking',
+      TOKEN:'token'
     },
   },
   serverConfig: {

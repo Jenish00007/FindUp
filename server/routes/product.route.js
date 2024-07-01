@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.get("/", async (req, res) => {
   let response = await getAllProducts();
-  console.log(response,'response')
+  //console.log(response,'response')
   res.json(response);
 });
 
@@ -19,7 +19,7 @@ router.delete("/delete/:productId", async (req, res) => {
   try {
     let productId = req.params.productId;
     let response = await deleteOneProductsById(productId);
-    console.log(productId, 'productId');
+    //console.log(productId, 'productId');
     res.json(response);
   } catch (error) {
     console.error("Error deleting product:", error);

@@ -30,7 +30,7 @@ router.post("/updatestatus", async (req, res) => {
   try {
       const productId = req.body.productId;
       const selectedStep = req.body.selectedStep;
-      console.log(selectedStep,productId)
+      //console.log(selectedStep,productId)
       await updateBookingStatus(productId, selectedStep);
       res.json({ status: true, message: "Booking status updated successfully" });
   } catch (error) {

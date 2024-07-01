@@ -133,7 +133,7 @@ const unfollowUser = async (userId, shopId) => {
 const checkfollow = async (userId, shopId) => {
   try {
     const { ObjectId } = require('mongodb');
-console.log(userId)
+//console.log(userId)
     const user = await MongoDB.db
       .collection(mongoConfig.collections.USERS)
       .findOne({ _id: ObjectId(userId) });

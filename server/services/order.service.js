@@ -123,7 +123,7 @@ const removeFromOrder = async (userId, productId) => {
 const updateBookingStatus = async (productId, selectedStep) => {
   try {
       let statusToUpdate;
-      console.log(statusToUpdate,productId)
+      //console.log(statusToUpdate,productId)
       // Determine the status based on the selectedStep
       if (selectedStep === 1) {
           statusToUpdate = "PICKUP";

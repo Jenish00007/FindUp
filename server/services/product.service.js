@@ -63,7 +63,7 @@ const getOneProductsById = async (productId) => {
 
 const deleteOneProductsById = async (productId) => {
   try {
-    console.log(productId,'hg')
+    //console.log(productId,'hg')
     const objectId = new ObjectId(productId);
     let product = await MongoDB.db
       .collection(mongoConfig.collections.PRODUCTS)

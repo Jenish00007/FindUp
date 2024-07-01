@@ -15,6 +15,7 @@ const userRegister = async (user) => {
       email: user?.email,
       mobileNumber: user?.mobileNumber,
       password: passwordHash,
+      devicetoken:user?.expoPushToken
     };
     let savedUser = await MongoDB.db
       .collection(mongoConfig.collections.USERS)

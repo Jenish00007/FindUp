@@ -216,6 +216,54 @@ app.post('/api/product/add_product', upload_Product.array('Product_Images', 3), 
 });
 
 
+ // Define the /api/token/create endpoint
+ app.post('/api/token/create', async (req, res) => {
+    try {
+        const { devicetoken } = req.body;
+        if (!devicetoken) {
+            return res.status(400).json({ error: 'No expoPushToken provided' });
+        }
+
+        const formattedDate = new Date();
+        const createdAt = formattedDate.toLocaleDateString('en-GB');
+
+        const tokenData = {
+            devicetoken,
+            createdAt
+        };
+
+        // Perform an upsert operation
+        const result = await MongoDB.db
+            .collection(mongoConfig.collections.TOKEN)
+            .updateOne(
+                { devicetoken },
+                { $setOnInsert: tokenData },
+                { upsert: true }
+            );
+
+        if (result.upsertedCount > 0 || result.modifiedCount > 0) {
+            res.status(200).json({
+                status: true,
+                message: "Token saved successfully",
+            });
+        } else {
+            res.status(200).json({
+                status: false,
+                message: "Token already exists",
+            });
+        }
+    } catch (error) {
+        console.error("Error saving token:", error.message);
+        console.error(error.stack);
+        res.status(500).json({
+            status: false,
+            message: "An error occurred while saving the token",
+        });
+    }
+});
+
+
+
 // Create subscription checkout session endpoint
 app.post("/api/v1/create-subscription-checkout-session", async (req, res) => {
     const { Plan, LoginedUserId, transactionId } = req.body;

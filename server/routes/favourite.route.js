@@ -36,7 +36,7 @@ router.post("/addToFavourite", async (req, res) => {
   try {
     const productId = req.body.productId; // Change to req.body.productId if productId is sent in the request body
     const LoginedUserId = req.body.LoginedUserId; // Get the logged-in user's ID
-    console.log(LoginedUserId,productId)
+    //console.log(LoginedUserId,productId)
     await addToFavourite(LoginedUserId, productId);
     res.json({ status: true, message: "Product added successfully" });
   } catch (error) {
