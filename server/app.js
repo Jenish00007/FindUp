@@ -216,6 +216,49 @@ app.post('/api/product/add_product', upload_Product.array('Product_Images', 3), 
 });
 
 
+
+
+
+
+// Create subscription checkout session endpoint
+app.post("/api/v1/create-subscription-checkout-session", async (req, res) => {
+    const { Plan, LoginedUserId, transactionId } = req.body;
+    const createdAt = new Date();
+
+    let planPrice = null;
+    if (Plan === "Basic") {
+        planPrice = 99;
+    } else if (Plan === "Standard") {
+        planPrice = 499;
+    }
+
+    // Define the data to be inserted into the database
+    const formData = {
+        plan: Plan,
+        userId: LoginedUserId,
+        transactionId: transactionId,
+        createdAt: createdAt,
+        planPrice: planPrice,
+        status: ''
+    };
+
+    try {
+        // Insert the data into the database
+        const savedOrder = await MongoDB.db
+            .collection(mongoConfig.collections.ORDERS)
+            .insertOne(formData);
+
+        // Respond with the saved order data
+        res.status(201).json(savedOrder);
+    } catch (error) {
+        // If there's an error, respond with an error message
+        console.error("Error saving order:", error);
+        res.status(500).json({ error: "Failed to save order" });
+    }
+});
+
+
+
  // Define the /api/token/create endpoint
  app.post('/api/token/create', async (req, res) => {
     try {
@@ -262,44 +305,6 @@ app.post('/api/product/add_product', upload_Product.array('Product_Images', 3), 
     }
 });
 
-
-
-// Create subscription checkout session endpoint
-app.post("/api/v1/create-subscription-checkout-session", async (req, res) => {
-    const { Plan, LoginedUserId, transactionId } = req.body;
-    const createdAt = new Date();
-
-    let planPrice = null;
-    if (Plan === "Basic") {
-        planPrice = 99;
-    } else if (Plan === "Standard") {
-        planPrice = 499;
-    }
-
-    // Define the data to be inserted into the database
-    const formData = {
-        plan: Plan,
-        userId: LoginedUserId,
-        transactionId: transactionId,
-        createdAt: createdAt,
-        planPrice: planPrice,
-        status: ''
-    };
-
-    try {
-        // Insert the data into the database
-        const savedOrder = await MongoDB.db
-            .collection(mongoConfig.collections.ORDERS)
-            .insertOne(formData);
-
-        // Respond with the saved order data
-        res.status(201).json(savedOrder);
-    } catch (error) {
-        // If there's an error, respond with an error message
-        console.error("Error saving order:", error);
-        res.status(500).json({ error: "Failed to save order" });
-    }
-});
 
 
 app.post("/api/get_subscription/check", async (req, res) => {

@@ -5,6 +5,7 @@ module.exports = {
     connectionUrl: config.mongoConnectionUrl,
     database: "foodelivery_db",
     collections: {
+       TOKEN:'tokens',
       USERS: "users",
       SHOPS: "shop",
       CARTS: "carts",
@@ -16,7 +17,7 @@ module.exports = {
       SLIDERS:"sliders",
       ORDERS:'orders',
       BOOKINGS:'booking',
-      TOKEN:'tokens'
+     
     },
   },
   serverConfig: {
